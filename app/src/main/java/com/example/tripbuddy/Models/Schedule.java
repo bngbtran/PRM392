@@ -17,7 +17,7 @@ public class Schedule {
     private LocalDate date;
     private LocalTime time;
 
-    // Constructor, getters, and setters
+    
     public Schedule(int userId, int destinationId, LocalDate date, LocalTime time) {
         this.userId = userId;
         this.destinationId = destinationId;
@@ -25,7 +25,7 @@ public class Schedule {
         this.time = time;
     }
 
-    // Other getters and setters
+    
 
     public int getScheduleId() {
         return scheduleId;

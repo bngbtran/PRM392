@@ -42,9 +42,9 @@ public class HomeActivity extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_home, container, false); // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.activity_home, container, false); 
 
-        // Set username
+        
         TextView username = view.findViewById(R.id.textHeader);
         String name = UserSession.getInstance().getUser().getUsername();
         TextView viewAll = view.findViewById(R.id.viewAllText);
@@ -53,17 +53,17 @@ public class HomeActivity extends Fragment {
         ImageView profileImageView = view.findViewById(R.id.profileImageView);
         ImageView notificationImageView = view.findViewById(R.id.notificationIcon);
 
-        // Setup RecyclerView
+        
         destinationRecyclerView = view.findViewById(R.id.destinationRecyclerView);
         destinationRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
-        // Initialize ViewModel
+        
         destinationViewModel = new DestinationViewModel(requireActivity().getApplication());
 
-        // Load destination data
+        
         loadDestinationData();
 
-        // Setup click listeners for other UI elements (like profile, notifications)
+        
         profileImageView.setOnClickListener(v -> {
             ProfileActivity secondFragment = new ProfileActivity();
             requireActivity().getSupportFragmentManager()
@@ -81,11 +81,11 @@ public class HomeActivity extends Fragment {
         });
 
         viewAll.setOnClickListener(v -> {
-            // Navigate to SearchActivity
+            
             requireActivity().getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fragment_container, new SearchActivity()) // Replace with your SearchActivity
-                    .addToBackStack(null) // Add to back stack to allow back navigation
+                    .replace(R.id.fragment_container, new SearchActivity()) 
+                    .addToBackStack(null) 
                     .commit();
         });
         return view;
@@ -97,7 +97,7 @@ public class HomeActivity extends Fragment {
             public void onChanged(List<Destination> destinations) {
                 if (destinations != null && !destinations.isEmpty()) {
                     destinationList.clear();
-                    // Get only the first three destinations
+                    
                     destinationList.addAll(destinations.subList(0, Math.min(3, destinations.size())));
                     updateRecyclerView();
                 } else {

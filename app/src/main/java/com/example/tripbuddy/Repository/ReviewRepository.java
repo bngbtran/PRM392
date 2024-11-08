@@ -24,7 +24,7 @@ public class ReviewRepository {
     }
 
     public void insert(Review review) {
-        // Perform insertion in a background thread
+        
         new Thread(() -> reviewDao.insert(review)).start();
     }
 
@@ -45,7 +45,7 @@ public class ReviewRepository {
         return reviewsLiveData;
     }
 
-    public List<Review> getReviewsForLocations(int locationId){
+    public List<Review> getReviewsForLocations(int locationId) {
         return reviewDao.getReviewsForLocation(locationId);
     }
 }

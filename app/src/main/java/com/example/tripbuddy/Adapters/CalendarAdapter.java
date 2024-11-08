@@ -16,9 +16,10 @@ import java.util.List;
 
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder> {
 
-    private List<CalendarDate> calendarDates;
-    private OnDateClickListener onDateClickListener;
     int selectedPosition = -1;
+    private final List<CalendarDate> calendarDates;
+    private final OnDateClickListener onDateClickListener;
+
     public CalendarAdapter(List<CalendarDate> calendarDates, OnDateClickListener onDateClickListener) {
         this.calendarDates = calendarDates;
         this.onDateClickListener = onDateClickListener;
@@ -38,23 +39,27 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         holder.dayOfWeekTextView.setText(date.getDayOfWeek());
         holder.dayTextView.setText(date.getDay());
 
-        // Set background based on selected position
+        
         if (selectedPosition == position) {
-            holder.itemView.setBackgroundResource(R.drawable.circle_indicator_active); // Set green background for selected date
+            holder.itemView.setBackgroundResource(R.drawable.circle_indicator_active); 
         } else {
-            holder.itemView.setBackgroundResource(R.color.white);  // Default background for unselected dates
+            holder.itemView.setBackgroundResource(R.color.white);  
         }
 
         holder.itemView.setOnClickListener(v -> {
             selectedPosition = position;
-            onDateClickListener.onDateClick(date); // Notify click listener
-            notifyDataSetChanged(); // Refresh the adapter to highlight the selected item
+            onDateClickListener.onDateClick(date); 
+            notifyDataSetChanged(); 
         });
     }
 
     @Override
     public int getItemCount() {
         return calendarDates.size();
+    }
+
+    public interface OnDateClickListener {
+        void onDateClick(CalendarDate date);
     }
 
     public static class CalendarViewHolder extends RecyclerView.ViewHolder {
@@ -65,9 +70,5 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
             dayOfWeekTextView = itemView.findViewById(R.id.dayOfWeekTextView);
             dayTextView = itemView.findViewById(R.id.dateTextView);
         }
-    }
-
-    public interface OnDateClickListener {
-        void onDateClick(CalendarDate date);
     }
 }

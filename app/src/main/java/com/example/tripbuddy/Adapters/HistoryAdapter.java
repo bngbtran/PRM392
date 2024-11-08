@@ -4,20 +4,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.tripbuddy.Models.History;
 import com.example.tripbuddy.R;
 import com.example.tripbuddy.ViewModel.DestinationViewModel;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder> {
 
-    private List<History> historyList = new ArrayList<>();
     private final DestinationViewModel destinationViewModel;
     private final LifecycleOwner lifecycleOwner;
+    private List<History> historyList = new ArrayList<>();
 
     public HistoryAdapter(DestinationViewModel destinationViewModel, LifecycleOwner lifecycleOwner) {
         this.destinationViewModel = destinationViewModel;
@@ -58,10 +61,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
         }
 
         public void bind(History history) {
-            // Displaying check-in date
+            
             checkInDateTextView.setText(history.getCheckInDate().substring(0, 10));
 
-            // Observe destination details to update the destination name dynamically
+            
             destinationViewModel.getDestinationById(history.getDestinationId())
                     .observe(lifecycleOwner, destination -> {
                         if (destination != null) {

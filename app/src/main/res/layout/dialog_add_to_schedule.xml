@@ -23,9 +23,9 @@
     <Button
         android:id="@+id/buttonAddToSchedule"
         android:layout_width="200dp"
-        android:layout_gravity="center"
         android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#397D54"
         android:minHeight="48dp"
-        android:text="@string/add_to_schedule"
-        android:backgroundTint="#397D54" />
+        android:text="@string/add_to_schedule" />
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.tripbuddy.ViewModel;
 
 import android.app.Application;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
@@ -12,9 +13,9 @@ import com.example.tripbuddy.Repository.DestinationRepostiory;
 import java.util.List;
 
 public class DestinationViewModel extends AndroidViewModel {
-    private DestinationRepostiory repository;
-    private LiveData<List<Destination>> allDestinations;
-    private MutableLiveData<Destination> destination;
+    private final DestinationRepostiory repository;
+    private final LiveData<List<Destination>> allDestinations;
+    private final MutableLiveData<Destination> destination;
 
     public DestinationViewModel(@NonNull Application application) {
         super(application);
@@ -33,7 +34,7 @@ public class DestinationViewModel extends AndroidViewModel {
     }
 
     private void loadDestinationById(int id) {
-        // Use a background thread to fetch data
+        
         repository.executorService.execute(() -> {
             Destination fetchedFood = repository.getDestinationById(id);
             destination.postValue(fetchedFood);

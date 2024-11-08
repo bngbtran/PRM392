@@ -6,7 +6,8 @@ public class UserSession {
     private static UserSession instance;
     private User user;
 
-    private UserSession() {}
+    private UserSession() {
+    }
 
     public static UserSession getInstance() {
         if (instance == null) {

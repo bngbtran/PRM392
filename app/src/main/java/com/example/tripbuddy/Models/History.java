@@ -11,10 +11,10 @@ public class History {
 
     private int scheduleId;
     private int destinationId;
-    private String checkInDate; // Use a suitable type for your date, e.g., LocalDateTime
-    private int userId; // Optional, depending on your user model
+    private String checkInDate; 
+    private int userId; 
 
-    // Constructor
+    
     public History(int scheduleId, int destinationId, String checkInDate, int userId) {
         this.scheduleId = scheduleId;
         this.destinationId = destinationId;
@@ -22,7 +22,7 @@ public class History {
         this.userId = userId;
     }
 
-    // Getters and setters
+    
     public int getId() {
         return id;
     }

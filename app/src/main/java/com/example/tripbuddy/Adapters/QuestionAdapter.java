@@ -16,7 +16,7 @@ import java.util.List;
 
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.QuestionViewHolder> {
 
-    private List<Question> questionList;
+    private final List<Question> questionList;
 
     public QuestionAdapter(List<Question> questionList) {
         this.questionList = questionList;
@@ -38,7 +38,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.Questi
         boolean isExpanded = question.isExpanded();
         holder.answerText.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
 
-        // Toggle expansion on arrow click
+        
         holder.arrow.setOnClickListener(v -> {
             question.setExpanded(!isExpanded);
             notifyItemChanged(position);

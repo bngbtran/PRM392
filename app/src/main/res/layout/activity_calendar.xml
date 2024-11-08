@@ -7,7 +7,7 @@
     android:background="@color/white"
     tools:context=".CalendarActivity">
 
-    <!-- Date Header -->
+
     <LinearLayout
         android:id="@+id/appBar"
         android:layout_width="0dp"
@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Back Button -->
+
         <ImageView
             android:id="@+id/backButton"
             android:layout_width="40dp"
@@ -31,7 +31,7 @@
             android:src="@drawable/ic_back_arrow"
             tools:ignore="ImageContrastCheck" />
 
-        <!-- Text Header -->
+
         <TextView
             android:id="@+id/textHeader"
             android:layout_width="182dp"
@@ -45,7 +45,7 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <!-- Cancel Text -->
+
         <TextView
             android:id="@+id/textCancel"
             android:layout_width="2dp"
@@ -59,7 +59,7 @@
             android:textSize="12sp" />
     </LinearLayout>
 
-    <!-- Selected Date Layout -->
+
     <LinearLayout
         android:id="@+id/selectedDate"
         android:layout_width="0dp"
@@ -71,16 +71,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBar">
 
-        <!-- Selected Date TextView -->
-
-        <!-- Next Date Button -->
 
         <TextView
             android:id="@+id/selectedDateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/example_date"
             android:fontFamily="@font/urbanist_bold"
+            android:text="@string/example_date"
             android:textAlignment="viewStart"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -100,14 +97,14 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="16dp"
-            android:padding="2dp"
             android:contentDescription="@string/next"
+            android:padding="2dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_next_button"
             tools:ignore="ImageContrastCheck" />
     </LinearLayout>
 
-    <!-- RecyclerView for Horizontal Scrolling Calendar -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCalendar"
         android:layout_width="404dp"
@@ -120,7 +117,6 @@
         app:layout_constraintTop_toBottomOf="@id/selectedDate" />
 
 
-    <!-- RecyclerView for Destinations -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewDestinations"
         android:layout_width="414dp"
@@ -130,6 +126,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recyclerViewCalendar" />
-    <!-- Back Date Button -->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

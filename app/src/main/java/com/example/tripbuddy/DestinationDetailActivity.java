@@ -46,7 +46,7 @@ public class DestinationDetailActivity extends AppCompatActivity {
         ImageView backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(view -> finish());
 
-        // Get data from the intent
+        
         Intent intent = getIntent();
         String destinationName = intent.getStringExtra("destinationName");
         int destinationId = intent.getIntExtra("destinationId", 0);
@@ -56,7 +56,7 @@ public class DestinationDetailActivity extends AppCompatActivity {
         double destinationLatitude = intent.getDoubleExtra("destinationLatitude", 0);
         double destinationLongitude = intent.getDoubleExtra("destinationLongitude", 0);
 
-        // Set the data to the views
+        
         TextView titleTextView = findViewById(R.id.destinationTitle);
         TextView locationTextView = findViewById(R.id.location);
         TextView aboutDescription = findViewById(R.id.aboutDescription);
@@ -72,18 +72,18 @@ public class DestinationDetailActivity extends AppCompatActivity {
         aboutDescription.setMovementMethod(LinkMovementMethod.getInstance());
 
 
-        // Combine the average rating and number of ratings
+        
         TextView ratingText = findViewById(R.id.ratingText);
 
-        // Set an OnClickListener to show the full-screen image when clicked
+        
         headerImage.setOnClickListener(v -> showFullScreenImage(destinationImageUrl));
 
         locationTextView.setOnClickListener(v -> openGoogleMaps(destinationLatitude, destinationLongitude));
 
         ratingText.setOnClickListener(v -> {
             Intent reviewsIntent = new Intent(DestinationDetailActivity.this, ReviewsActivity.class);
-            reviewsIntent.putExtra("destinationId", destinationId); // Pass the destination ID
-            reviewsIntent.putExtra("destinationName", destinationName); // Pass the name for display
+            reviewsIntent.putExtra("destinationId", destinationId); 
+            reviewsIntent.putExtra("destinationName", destinationName); 
             startActivity(reviewsIntent);
         });
 
@@ -91,13 +91,13 @@ public class DestinationDetailActivity extends AppCompatActivity {
 
         ImageView bookmarkBtn = findViewById(R.id.bookmarkIcon);
         bookmarkBtn.setOnClickListener(view -> {
-            // Assume you have the userId and destinationId
+            
             bookMarkViewModel.addBookmark(destinationId, UserSession.getInstance().getUser().getUserId());
             Toast.makeText(this, "Bookmarked!", Toast.LENGTH_SHORT).show();
         });
 
         Button addToScheduleButton = findViewById(R.id.addToScheduleButton);
-        addToScheduleButton.setOnClickListener(v ->{
+        addToScheduleButton.setOnClickListener(v -> {
             showAddToScheduleDialog(UserSession.getInstance().getUser().getUserId(), destinationId);
         });
     }
@@ -116,7 +116,7 @@ public class DestinationDetailActivity extends AppCompatActivity {
                 @Override
                 public void updateDrawState(TextPaint ds) {
                     super.updateDrawState(ds);
-                    ds.setColor(getResources().getColor(R.color.ic_launcher_background)); // Update color based on your theme
+                    ds.setColor(getResources().getColor(R.color.ic_launcher_background)); 
                     ds.setUnderlineText(false);
                 }
             }, shortDescription.length() + 1, ssb.length(), 0);
@@ -149,58 +149,58 @@ public class DestinationDetailActivity extends AppCompatActivity {
     }
 
     public void showFullScreenImage(String imageUrl) {
-        final Dialog dialog = new Dialog(this, android.R.style.Theme_Black_NoTitleBar_Fullscreen); // Set to full screen
+        final Dialog dialog = new Dialog(this, android.R.style.Theme_Black_NoTitleBar_Fullscreen); 
         dialog.setContentView(R.layout.dialog_full_screen_image);
-        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawableResource(android.R.color.transparent); // Make background transparent
+        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawableResource(android.R.color.transparent); 
 
         ImageView fullScreenImageView = dialog.findViewById(R.id.fullScreenImageView);
-        Glide.with(this).load(imageUrl).into(fullScreenImageView); // Load the image with Glide
-        fullScreenImageView.setOnClickListener(v -> dialog.dismiss()); // Dismiss the dialog when clicked
+        Glide.with(this).load(imageUrl).into(fullScreenImageView); 
+        fullScreenImageView.setOnClickListener(v -> dialog.dismiss()); 
 
         dialog.show();
     }
 
     private void showAddToScheduleDialog(int userId, int destinationId) {
-        // Inflate the custom dialog layout
+        
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_add_to_schedule, null);
         scheduleViewModel = new ViewModelProvider(this).get(ScheduleViewModel.class);
 
-        // Initialize the DatePicker and TimePicker
+        
         DatePicker datePicker = dialogView.findViewById(R.id.datePicker);
         TimePicker timePicker = dialogView.findViewById(R.id.timePicker);
-        timePicker.setIs24HourView(true); // Optional: Set 24-hour format
+        timePicker.setIs24HourView(true); 
 
-        // Create the AlertDialog
+        
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setView(dialogView)
                 .setTitle("Add to Schedule")
                 .setNegativeButton("Cancel", (d, which) -> d.dismiss())
                 .create();
 
-        // Handle "Add to Schedule" button click
+        
         Button buttonAddToSchedule = dialogView.findViewById(R.id.buttonAddToSchedule);
         buttonAddToSchedule.setOnClickListener(v -> {
-            // Get selected date
+            
             int year = datePicker.getYear();
             int month = datePicker.getMonth();
             int day = datePicker.getDayOfMonth();
-            LocalDate date = LocalDate.of(year, month + 1, day); // Month is 0-based
-            // Get selected time
+            LocalDate date = LocalDate.of(year, month + 1, day); 
+            
             int hour = timePicker.getHour();
             int minute = timePicker.getMinute();
             LocalTime time = LocalTime.of(hour, minute);
 
-            // Add to Schedule using ViewModel
+            
             scheduleViewModel.addSchedule(userId, destinationId, date, time);
 
-            // Show confirmation message
+            
             Toast.makeText(this, "Added to schedule", Toast.LENGTH_SHORT).show();
 
-            // Dismiss dialog
+            
             dialog.dismiss();
         });
 
-        // Show the dialog
+        
         dialog.show();
     }
 

@@ -48,6 +48,6 @@ public class ScheduleViewModel extends AndroidViewModel {
     }
 
     public void deleteSchedule(int schedule) {
-        new Thread(() -> scheduleRepository.deleteSchedule(schedule)).start(); // Using a new thread for database operations
+        new Thread(() -> scheduleRepository.deleteSchedule(schedule)).start(); 
     }
 }

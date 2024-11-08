@@ -1,12 +1,12 @@
 package com.example.tripbuddy.Models;
 
 public class CalendarDate {
-    private String dayOfWeek;
+    private final String dayOfWeek;
     private String dayOfMonth;
-    private String day;
+    private final String day;
     private boolean isSelected;
 
-    public CalendarDate(String dayOfWeek,String dayOfMonth, String day, boolean isSelected) {
+    public CalendarDate(String dayOfWeek, String dayOfMonth, String day, boolean isSelected) {
         this.dayOfWeek = dayOfWeek;
         this.day = day;
         this.isSelected = isSelected;
@@ -35,7 +35,8 @@ public class CalendarDate {
     public void setSelected(boolean selected) {
         isSelected = selected;
     }
-    // Override equals and hashCode for proper comparison
+
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;

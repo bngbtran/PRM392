@@ -2,41 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="12dp"
     android:background="?attr/selectableItemBackground"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="12dp">
 
-    <!-- User profile image or avatar -->
+
     <ImageView
         android:id="@+id/profileImage"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:contentDescription="@string/profile"
-        android:src="@drawable/profile_avatar"
-        android:scaleType="centerCrop"
         android:layout_marginEnd="12dp"
-        android:background="@color/white" /> <!-- Circle background can be custom -->
+        android:background="@color/white"
+        android:contentDescription="@string/profile"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile_avatar" />
 
-    <!-- Texts: Title and Subtitle -->
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <!-- Title (e.g., Super Offer) -->
+
         <TextView
             android:id="@+id/notification_Title"
             android:layout_width="wrap_content"
-            android:fontFamily="@font/urbanist_bold"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/urbanist_bold"
             android:text="@string/notification_header"
-            android:textStyle="bold"
             android:textColor="#397D54"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-        <!-- Subtitle (e.g., Get 60% off in our first booking) -->
+
         <TextView
             android:id="@+id/subtitle"
             android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-    <!-- Timestamp (e.g., Sun, 12:40 PM) -->
+
     <TextView
         android:id="@+id/timestamp"
         android:layout_width="wrap_content"

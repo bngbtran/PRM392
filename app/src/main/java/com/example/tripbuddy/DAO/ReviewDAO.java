@@ -10,6 +10,7 @@ import androidx.room.Update;
 import com.example.tripbuddy.Models.Review;
 
 import java.util.List;
+
 @Dao
 public interface ReviewDAO {
     @Insert
@@ -22,7 +23,7 @@ public interface ReviewDAO {
     void delete(Review review);
 
     @Query("SELECT * FROM Review WHERE locationId = :locationId ORDER BY reviewTime DESC")
-    List<Review> getReviewsForLocation(int locationId); // New method
+    List<Review> getReviewsForLocation(int locationId); 
 }
 
 

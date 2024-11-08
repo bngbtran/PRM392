@@ -1,13 +1,14 @@
 package com.example.tripbuddy.API;
 
 import android.os.AsyncTask;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class ApiCallTask extends AsyncTask<String, Void, String> {
-    private ApiCallback callback;
+    private final ApiCallback callback;
 
     public ApiCallTask(ApiCallback callback) {
         this.callback = callback;
@@ -20,7 +21,7 @@ public class ApiCallTask extends AsyncTask<String, Void, String> {
             URL url = new URL(apiUrl);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
-            urlConnection.setConnectTimeout(5000);  // Set a timeout of 5 seconds
+            urlConnection.setConnectTimeout(5000);  
 
             int responseCode = urlConnection.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_OK) {

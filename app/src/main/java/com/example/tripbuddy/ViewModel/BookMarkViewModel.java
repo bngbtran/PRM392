@@ -1,4 +1,5 @@
 package com.example.tripbuddy.ViewModel;
+
 import android.app.Application;
 
 import androidx.annotation.NonNull;
@@ -11,7 +12,7 @@ import com.example.tripbuddy.Repository.BookMarkRepository;
 import java.util.List;
 
 public class BookMarkViewModel extends AndroidViewModel {
-    private BookMarkRepository bookMarkRepository;
+    private final BookMarkRepository bookMarkRepository;
     private LiveData<List<BookMarkDestination>> bookmarks;
 
     public BookMarkViewModel(@NonNull Application application) {

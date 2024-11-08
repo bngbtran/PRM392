@@ -18,19 +18,19 @@ public class EditProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
-        // Set default values or get data from intent/ database
+        
         TextView doneButton = findViewById(R.id.doneButton);
         ImageView backButton = findViewById(R.id.backButton);
 
         doneButton.setOnClickListener(v -> {
-            // Save profile changes logic here
+            
             Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
             startActivity(intent);
         });
 
-        // Add logic to change profile picture
+        
         backButton.setOnClickListener(v -> {
-            // Change profile picture logic here
+            
             Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
             startActivity(intent);
         });

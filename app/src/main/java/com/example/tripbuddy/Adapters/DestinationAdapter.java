@@ -19,8 +19,8 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.ViewHolder> {
-    private List<Destination> destinationList;
-    private Context context;
+    private final List<Destination> destinationList;
+    private final Context context;
 
     public DestinationAdapter(List<Destination> destinationList, Context context) {
         this.destinationList = destinationList;
@@ -40,13 +40,13 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
         holder.destinationName.setText(destination.getName());
         holder.destinationLocation.setText(destination.getLocation());
 
-        // Load image from URL using Glide
+        
         Glide.with(context)
-                .load(destination.getImageResId()) // Assuming imageResId is a URL
-                .placeholder(R.drawable.sample_destination) // Placeholder image while loading
+                .load(destination.getImageResId()) 
+                .placeholder(R.drawable.sample_destination) 
                 .into(holder.destinationImage);
 
-        // Handle click event on each destination item
+        
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, DestinationDetailActivity.class);
             intent.putExtra("destinationName", destination.getName());

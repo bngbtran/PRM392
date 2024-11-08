@@ -1,6 +1,7 @@
 package com.example.tripbuddy.AppDatabase;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
@@ -33,32 +34,9 @@ import java.util.concurrent.Executors;
 @Database(entities = {User.class, Destination.class, Review.class, BookMarkDestination.class, Schedule.class, History.class}, version = 1, exportSchema = false)
 @TypeConverters({LocalDateConverter.class, LocalTimeConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
-    public abstract UserDAO userDao();
-    public abstract DestinationDAO destinationDAO();
-    public abstract ReviewDAO reviewDAO();
-    public abstract BookMarkDAO bookMarkDao();
-    public abstract ScheduleDAO scheduleDAO();
-    public abstract HistoryDAO historyDAO();
-
-    private static volatile AppDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
     static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
-
-    public static AppDatabase getDatabase(final Context context) {
-        if (INSTANCE == null) {
-            synchronized (AppDatabase.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                                    AppDatabase.class, "app_tripBuddy_database")
-                            .addCallback(sRoomDatabaseCallback)
-                            .build();
-                }
-            }
-        }
-        return INSTANCE;
-    }
-
-    private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
+    private static final RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
@@ -69,7 +47,7 @@ public abstract class AppDatabase extends RoomDatabase {
                 UserDAO userDao = INSTANCE.userDao();
 
                 // Insert sample users
-                User user = new User("user","admin@travel.com","123456");
+                User user = new User("user", "admin@travel.com", "123456");
                 userDao.insert(user);
 
                 destinationDao.insert(new Destination("Hoi An Ancient Town", "Quang Nam", "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Ph%E1%BB%91_c%E1%BB%95_H%E1%BB%99i_An_-_NKS.jpg/402px-Ph%E1%BB%91_c%E1%BB%95_H%E1%BB%99i_An_-_NKS.jpg", "A charming ancient town known for its historic architecture and vibrant lantern-lit streets.", 108.324805, 15.880058));
@@ -96,6 +74,33 @@ public abstract class AppDatabase extends RoomDatabase {
             });
         }
     };
+    private static volatile AppDatabase INSTANCE;
+
+    public static AppDatabase getDatabase(final Context context) {
+        if (INSTANCE == null) {
+            synchronized (AppDatabase.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                                    AppDatabase.class, "app_tripBuddy_database")
+                            .addCallback(sRoomDatabaseCallback)
+                            .build();
+                }
+            }
+        }
+        return INSTANCE;
+    }
+
+    public abstract UserDAO userDao();
+
+    public abstract DestinationDAO destinationDAO();
+
+    public abstract ReviewDAO reviewDAO();
+
+    public abstract BookMarkDAO bookMarkDao();
+
+    public abstract ScheduleDAO scheduleDAO();
+
+    public abstract HistoryDAO historyDAO();
 
 }
 

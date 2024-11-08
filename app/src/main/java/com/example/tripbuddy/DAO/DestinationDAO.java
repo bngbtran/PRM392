@@ -11,6 +11,7 @@ import androidx.room.Update;
 import com.example.tripbuddy.Models.Destination;
 
 import java.util.List;
+
 @Dao
 public interface DestinationDAO {
     @Insert

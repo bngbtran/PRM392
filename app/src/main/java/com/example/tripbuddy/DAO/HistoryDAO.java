@@ -16,7 +16,7 @@ public interface HistoryDAO {
     void insert(History history);
 
     @Query("SELECT * FROM History WHERE userId = :userId ORDER BY checkInDate DESC")
-    List<History> getHistoryByUserId(int userId); // Fetch history by userId
+    List<History> getHistoryByUserId(int userId); 
 
     @Query("SELECT * FROM History WHERE userId = :userId ORDER BY checkInDate DESC")
     LiveData<List<History>> getHistoryByUserIdLiveData(int userId);

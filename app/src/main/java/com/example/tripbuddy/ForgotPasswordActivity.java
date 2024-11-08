@@ -31,7 +31,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         resetPasswordButton = findViewById(R.id.resetPasswordButton);
         backButton = findViewById(R.id.backButton);
 
-        // Initialize ViewModel
+        
         userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
 
         resetPasswordButton.setOnClickListener(view -> handlePasswordReset());
@@ -44,7 +44,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         if (email.isEmpty()) {
             Toast.makeText(ForgotPasswordActivity.this, "Please enter your email", Toast.LENGTH_SHORT).show();
         } else {
-            // Observe password retrieval
+            
             userViewModel.getPasswordByEmail(email).observe(this, new Observer<String>() {
                 @Override
                 public void onChanged(String password) {
@@ -74,7 +74,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     }
 
     private void showPasswordSentDialog() {
-        // Inflate and display a custom layout for the dialog
+        
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
         dialogBuilder.setView(inflater.inflate(R.layout.dialog_password_reset, null));

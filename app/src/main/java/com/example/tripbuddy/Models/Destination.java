@@ -16,45 +16,53 @@ public class Destination implements Serializable {
     private double longitude;
     private double latitude;
 
-    public Destination(String name, String location, String imageResId,String description, double longitude, double latitude) {
+    public Destination(String name, String location, String imageResId, String description, double longitude, double latitude) {
         this.name = name;
         this.location = location;
         this.imageResId = imageResId;
         this.description = description;
         this.longitude = longitude;
-        this.latitude  = latitude;
+        this.latitude = latitude;
     }
 
     public int getId() {
         return id;
-    }
-    public String getName() {
-        return name;
-    }
-    public double getLongitude() {
-        return longitude;
-    }
-    public double getLatitude() {
-        return latitude;
-    }
-    public String getLocation() {
-        return location;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public double getLongitude() {
+        return longitude;
     }
 
-    public void setImageResId(String imageResId) {
-        this.imageResId = imageResId;
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getDescription() {
@@ -65,15 +73,11 @@ public class Destination implements Serializable {
         this.description = description;
     }
 
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
     public String getImageResId() {
         return imageResId;
+    }
+
+    public void setImageResId(String imageResId) {
+        this.imageResId = imageResId;
     }
 }

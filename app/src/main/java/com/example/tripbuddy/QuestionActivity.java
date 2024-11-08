@@ -25,10 +25,10 @@ public class QuestionActivity extends Fragment {
         View view = inflater.inflate(R.layout.activity_question_page, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.questionRecyclerView);
-        // Set up your adapter, data, etc. here
+        
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // Sample data
+        
         List<Question> questionList = new ArrayList<>();
         questionList.add(new Question("How can I create my travel schedule ?", "To create your travel schedule, simply log in, get access to the \"Schedules\" section on the navigation bar. You will be processed to a schedule, just choose the date you want to travel, click \"Create Plan\" and choose any places you want."));
         questionList.add(new Question("What features does this system offer ?", "The system offers large amounts of destinations, many interesting places with real reviews from other people and so on. Besides, you can manage your trip by planning a schedule for yourself, making sure that you will have a memorable trip."));

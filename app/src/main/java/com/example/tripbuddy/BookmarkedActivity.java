@@ -24,7 +24,7 @@ import java.util.List;
 
 public class BookmarkedActivity extends AppCompatActivity {
 
-    private List<Destination> destinationList = new ArrayList<>();
+    private final List<Destination> destinationList = new ArrayList<>();
     private RecyclerView destinationRecyclerView;
     private DestinationAdapter destinationAdapter;
     private DestinationViewModel destinationViewModel;
@@ -35,21 +35,21 @@ public class BookmarkedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookmarked);
 
-        // Initialize RecyclerView
+        
         destinationRecyclerView = findViewById(R.id.destinationRecyclerView);
         destinationRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
-        // Initialize the adapter and set it to the RecyclerView
+        
         destinationAdapter = new DestinationAdapter(destinationList, this);
         destinationRecyclerView.setAdapter(destinationAdapter);
 
-        // Initialize DestinationViewModel
+        
         destinationViewModel = new ViewModelProvider(this).get(DestinationViewModel.class);
 
-        // Load bookmarked destinations
+        
         loadBookmarkedDestinations();
 
-        // Set up back button
+        
         ImageView backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(this::onBackButtonClick);
     }
@@ -57,13 +57,13 @@ public class BookmarkedActivity extends AppCompatActivity {
     private void loadBookmarkedDestinations() {
         int userId = UserSession.getInstance().getUser().getUserId();
         BookMarkViewModel bookMarkViewModel = new ViewModelProvider(this).get(BookMarkViewModel.class);
-        // Observe the list of bookmarked destinations for the user
+        
         bookMarkViewModel.getUserBookmarks(userId).observe(this, bookmarkedDestinations -> {
             if (bookmarkedDestinations != null && !bookmarkedDestinations.isEmpty()) {
                 for (BookMarkDestination bookmark : bookmarkedDestinations) {
                     int destinationId = bookmark.getDestinationId();
 
-                    // Fetch and observe each destination's details
+                    
                     destinationViewModel.getDestinationById(destinationId).observe(this, destination -> {
                         if (destination != null) {
                             destinationList.add(destination);

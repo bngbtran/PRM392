@@ -17,7 +17,7 @@ public class SplashActivity3 extends AppCompatActivity {
 
         Button splashNext = findViewById(R.id.getStartedButton);
         splashNext.setOnClickListener(v -> {
-            // Chuyển đổi sang SecondActivity
+            
             Intent intent = new Intent(SplashActivity3.this, LoginActivity.class);
             startActivity(intent);
         });

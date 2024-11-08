@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,11 +7,7 @@
     android:background="#FFFFFF"
     tools:context=".BookmarkedActivity">
 
-    <!-- AppBar with profile and notification -->
 
-    <!-- Search bar and search icon layout -->
-
-    <!-- RecyclerView for Scrollable Destination Cards -->
     <LinearLayout
         android:id="@+id/appBar"
         android:layout_width="0dp"
@@ -25,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Profile Picture -->
+
         <ImageView
             android:id="@+id/backButton"
             android:layout_width="40dp"
@@ -37,7 +32,7 @@
             android:src="@drawable/ic_back_arrow"
             tools:ignore="ImageContrastCheck" />
 
-        <!-- Text Header -->
+
         <TextView
             android:id="@+id/textHeader"
             android:layout_width="0dp"
@@ -47,8 +42,8 @@
             android:fontFamily="@font/urbanist_bold"
             android:text="@string/bookmarked_places"
             android:textAlignment="center"
-            android:textSize="18sp"
             android:textColor="#397D54"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -61,6 +56,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBar"/>
+        app:layout_constraintTop_toBottomOf="@+id/appBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

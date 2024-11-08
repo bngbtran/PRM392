@@ -7,8 +7,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+
 import com.example.tripbuddy.ViewModel.UserViewModel;
 import com.example.tripbuddy.Adapters.UserSession;
 
@@ -30,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         signUpButton = findViewById(R.id.signUpPrompt);
         forgotPasswordText = findViewById(R.id.forgotPasswordText);
 
-        // Initialize ViewModel
+        
         userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
 
         signInButton.setOnClickListener(view -> {
@@ -56,13 +58,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginUser(String username, String password) {
-        // Use ViewModel to fetch user details
+        
         userViewModel.getUser(username, password).observe(this, user -> {
             if (user != null) {
                 Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 
-                // Set username in UserSession
+                
                 UserSession.getInstance().setUser(user);
                 intent.putExtra("name", username);
                 startActivity(intent);

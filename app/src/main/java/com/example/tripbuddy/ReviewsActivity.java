@@ -30,39 +30,39 @@ public class ReviewsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ReviewAdapter reviewAdapter;
     private ReviewViewModel reviewViewModel;
-    private ArrayList<Review> reviews; // Assuming you have a Review model
+    private ArrayList<Review> reviews; 
     private int locationId;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reviews); // Your activity layout
+        setContentView(R.layout.activity_reviews); 
 
         recyclerView = findViewById(R.id.recyclerViewReviews);
-        ImageView writeReviewButton = findViewById(R.id.btnWriteReview); // ID of your button to write review
+        ImageView writeReviewButton = findViewById(R.id.btnWriteReview); 
 
         String destinationName = getIntent().getStringExtra("destinationName");
-        locationId = getIntent().getIntExtra("destinationId", -1); // Get the location ID from the intent
+        locationId = getIntent().getIntExtra("destinationId", -1); 
 
         TextView tvDestinationName = findViewById(R.id.tvReviewsTitle);
         tvDestinationName.setText(String.format("Review of %s", destinationName));
 
         reviews = new ArrayList<>();
-        reviewAdapter = new ReviewAdapter(reviews); // Replace with your adapter class
+        reviewAdapter = new ReviewAdapter(reviews); 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(reviewAdapter);
 
-        // Initialize the ReviewViewModel
+        
         reviewViewModel = new ViewModelProvider(this, new ViewModelProvider.AndroidViewModelFactory(getApplication()))
                 .get(ReviewViewModel.class);
 
-        // Load reviews from the database
+        
         loadReviews();
 
-        // Set up the Write Review button
+        
         writeReviewButton.setOnClickListener(v -> showReviewDialog());
 
-        // Handle back button press to return to the previous screen
+        
         ImageView backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(v -> onBackPressed());
     }
@@ -71,37 +71,36 @@ public class ReviewsActivity extends AppCompatActivity {
         reviewViewModel.getReviewsForLocation(locationId).observe(this, new Observer<List<Review>>() {
             @Override
             public void onChanged(List<Review> reviewList) {
-                reviews.clear(); // Clear the old reviews
+                reviews.clear(); 
                 if (reviewList != null) {
-                    reviews.addAll(reviewList); // Add new reviews to the list
-                }
-                else{
+                    reviews.addAll(reviewList); 
+                } else {
                     seedReviews();
                 }
-                reviewAdapter.notifyDataSetChanged(); // Notify adapter of data change
+                reviewAdapter.notifyDataSetChanged(); 
             }
         });
     }
 
     public void seedReviews() {
-        // Create some default reviews for specific locations
+        
         Review review1 = new Review("Alice", "Amazing experience!", "2024-11-03 10:30:00", 5, 1);
         Review review2 = new Review("Bob", "Had a great time, highly recommend!", "2024-11-03 11:00:00", 5, 1);
         Review review3 = new Review("Charlie", "Not what I expected, but still enjoyable.", "2024-11-03 11:30:00", 5, 2);
         Review review4 = new Review("Diana", "Fantastic views and lovely people.", "2024-11-03 12:00:00", 5, 3);
 
         new Thread(() -> {
-            // Check if the reviews are already seeded for location 1
+            
             if (locationId == 1) {
                 reviewViewModel.insert(review1);
                 reviewViewModel.insert(review2);
             }
-            // Check for location 2
+            
             if (locationId == 2) {
                 reviewViewModel.insert(review3);
             }
-            // Check for location 3
-            if (locationId ==3) {
+            
+            if (locationId == 3) {
                 reviewViewModel.insert(review4);
             }
         }).start();
@@ -125,10 +124,10 @@ public class ReviewsActivity extends AppCompatActivity {
             double rating = ratingBar.getRating();
             if (!reviewText.isEmpty()) {
                 Review newReview = new Review(email, reviewText, currentDate + " " + currentTime, rating, locationId);
-                reviewViewModel.insert(newReview); // Use ViewModel to insert review
+                reviewViewModel.insert(newReview); 
                 reviews.add(newReview);
                 reviewAdapter.notifyItemInserted(reviews.size() - 1);
-                recyclerView.scrollToPosition(reviews.size() - 1); // Scroll to the new review
+                recyclerView.scrollToPosition(reviews.size() - 1); 
                 Toast.makeText(this, "Review submitted!", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Please enter a review.", Toast.LENGTH_SHORT).show();

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,14 +7,14 @@
     android:background="#FFFFFF"
     tools:context=".ProfileActivity">
 
-    <!-- Back and Edit Icons -->
+
     <ImageView
         android:id="@+id/backButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_back_arrow"
         android:contentDescription="@string/back"
+        android:src="@drawable/ic_back_arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,32 +23,28 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_margin="20dp"
-        android:src="@drawable/ic_edit"
         android:contentDescription="@string/profile"
+        android:src="@drawable/ic_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Profile Title -->
-
-    <!-- Profile Picture -->
 
     <TextView
         android:id="@+id/profileTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/urbanist_bold"
         android:text="@string/profile"
         android:textAlignment="center"
-        android:textSize="24sp"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold"
         android:textColor="#397D54"
-        android:fontFamily="@font/urbanist_bold"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/backButton"
         app:layout_constraintEnd_toStartOf="@id/editProfileButton"
         app:layout_constraintStart_toEndOf="@id/backButton"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Name and Email -->
 
     <ImageView
         android:id="@+id/profilePicture"
@@ -87,16 +82,16 @@
         android:id="@+id/profileEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/urbanist_regular"
         android:text="@string/email"
         android:textAlignment="center"
         android:textColor="#546E7A"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:fontFamily="@font/urbanist_regular"
         app:layout_constraintTop_toBottomOf="@id/profileName" />
 
-    <!-- Reward Points, Travel Trips, and Bucket List -->
+
     <LinearLayout
         android:id="@+id/statsLayout"
         android:layout_width="0dp"
@@ -104,33 +99,33 @@
         android:layout_marginTop="16dp"
         android:baselineAligned="false"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/profileEmail"
-        app:layout_constraintStart_toStartOf="parent"
+        android:weightSum="3"
         app:layout_constraintEnd_toEndOf="parent"
-        android:weightSum="3">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileEmail">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/rewardPoints"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/travel_value"
-                android:textSize="18sp"
-                android:textColor="#397D54"
                 android:fontFamily="@font/urbanist_regular"
+                android:text="@string/travel_value"
+                android:textColor="#397D54"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/reward_points"
                 android:fontFamily="@font/urbanist_regular"
+                android:text="@string/reward_points"
                 android:textColor="#546E7A"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -139,8 +134,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/travelTrips"
@@ -148,16 +143,16 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/urbanist_regular"
                 android:text="@string/travel_trip_value"
-                android:textSize="18sp"
                 android:textColor="#397D54"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/urbanist_regular"
                 android:text="@string/travel_trips"
                 android:textColor="#546E7A"
-                android:fontFamily="@font/urbanist_regular"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -165,30 +160,30 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/bucketList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/urbanist_regular"
                 android:text="@string/bucket_value"
                 android:textColor="#397D54"
                 android:textSize="18sp"
-                android:fontFamily="@font/urbanist_regular"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/bucket_list"
                 android:fontFamily="@font/urbanist_regular"
+                android:text="@string/bucket_list"
                 android:textColor="#546E7A"
                 android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Profile Options List -->
+
     <LinearLayout
         android:id="@+id/profileOptionsLayout"
         android:layout_width="0dp"
@@ -211,7 +206,7 @@
             android:paddingHorizontal="20dp"
             android:paddingVertical="20dp">
 
-            <!-- First Icon (Start Icon) -->
+
             <ImageView
                 android:id="@+id/profileIcon"
                 android:layout_width="24dp"
@@ -221,18 +216,18 @@
                 android:src="@drawable/profile_avatar"
                 tools:ignore="ImageContrastCheck" />
 
-            <!-- Text -->
+
             <TextView
                 android:id="@+id/profileText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/urbanist_regular"
                 android:gravity="center_vertical"
                 android:text="@string/profile"
-                android:fontFamily="@font/urbanist_regular"
                 android:textSize="16sp" />
 
-            <!-- Last Icon (End Icon) -->
+
             <ImageView
                 android:id="@+id/profileEndIcon"
                 android:layout_width="24dp"
@@ -251,7 +246,7 @@
             android:paddingHorizontal="20dp"
             android:paddingVertical="20dp">
 
-            <!-- First Icon (Start Icon) -->
+
             <ImageView
                 android:id="@+id/bookmarkIcon"
                 android:layout_width="24dp"
@@ -262,25 +257,25 @@
                 android:src="@drawable/ic_bookmark"
                 tools:ignore="ImageContrastCheck" />
 
-            <!-- Text -->
+
             <TextView
                 android:id="@+id/bookmarkText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center_vertical"
                 android:fontFamily="@font/urbanist_regular"
+                android:gravity="center_vertical"
                 android:text="@string/bookmarked"
                 android:textSize="16sp" />
 
-            <!-- Last Icon (End Icon) -->
+
             <ImageView
                 android:id="@+id/bookmarkEndIcon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
-                android:fontFamily="@font/urbanist_regular"
                 android:contentDescription="@string/back"
+                android:fontFamily="@font/urbanist_regular"
                 android:src="@drawable/ic_next_button" />
         </LinearLayout>
 
@@ -293,7 +288,7 @@
             android:paddingHorizontal="20dp"
             android:paddingVertical="20dp">
 
-            <!-- First Icon (Start Icon) -->
+
             <ImageView
                 android:id="@+id/previousTripIcon"
                 android:layout_width="24dp"
@@ -303,7 +298,7 @@
                 android:src="@drawable/ic_trip"
                 tools:ignore="ImageContrastCheck" />
 
-            <!-- Text -->
+
             <TextView
                 android:id="@+id/previousText"
                 android:layout_width="0dp"
@@ -314,14 +309,14 @@
                 android:text="@string/previous_trips"
                 android:textSize="16sp" />
 
-            <!-- Last Icon (End Icon) -->
+
             <ImageView
                 android:id="@+id/previousEndIcon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:fontFamily="@font/urbanist_regular"
                 android:layout_marginStart="8dp"
                 android:contentDescription="@string/previous_trips"
+                android:fontFamily="@font/urbanist_regular"
                 android:src="@drawable/ic_next_button" />
         </LinearLayout>
 
@@ -334,7 +329,7 @@
             android:paddingHorizontal="20dp"
             android:paddingVertical="20dp">
 
-            <!-- First Icon (Start Icon) -->
+
             <ImageView
                 android:id="@+id/settingIcon"
                 android:layout_width="24dp"
@@ -344,18 +339,18 @@
                 android:src="@drawable/ic_setting"
                 tools:ignore="ImageContrastCheck" />
 
-            <!-- Text -->
+
             <TextView
                 android:id="@+id/settingText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/urbanist_regular"
                 android:gravity="center_vertical"
                 android:text="@string/settings"
-                android:fontFamily="@font/urbanist_regular"
                 android:textSize="16sp" />
 
-            <!-- Last Icon (End Icon) -->
+
             <ImageView
                 android:id="@+id/settingEndIcon"
                 android:layout_width="24dp"
@@ -374,7 +369,7 @@
             android:paddingHorizontal="20dp"
             android:paddingVertical="20dp">
 
-            <!-- First Icon (Start Icon) -->
+
             <ImageView
                 android:id="@+id/versionIcon"
                 android:layout_width="24dp"
@@ -383,7 +378,7 @@
                 android:contentDescription="@string/version"
                 android:src="@drawable/ic_version" />
 
-            <!-- Text -->
+
             <TextView
                 android:id="@+id/versionText"
                 android:layout_width="0dp"
@@ -393,14 +388,14 @@
                 android:text="@string/version"
                 android:textSize="16sp" />
 
-            <!-- Last Icon (End Icon) -->
+
             <ImageView
                 android:id="@+id/versionEndIcon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:fontFamily="@font/urbanist_regular"
                 android:layout_marginStart="8dp"
                 android:contentDescription="@string/version"
+                android:fontFamily="@font/urbanist_regular"
                 android:src="@drawable/ic_next_button" />
         </LinearLayout>
     </LinearLayout>

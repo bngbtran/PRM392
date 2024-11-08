@@ -7,93 +7,90 @@
     android:background="#FFFFFF"
     tools:context=".NotificationActivity">
 
-    <!-- App Bar with title and clear all button -->
+
     <LinearLayout
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:padding="16dp"
-        android:id="@+id/appBar"
         tools:ignore="MissingConstraints">
 
-        <!-- Back Button -->
+
         <ImageView
             android:id="@+id/backButton"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_back_arrow"
-            android:contentDescription="@string/back" />
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_back_arrow" />
 
-        <!-- Title (e.g., Notification) -->
+
         <TextView
             android:id="@+id/notificationTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/notification"
-            android:textStyle="bold"
             android:fontFamily="@font/urbanist_bold"
-            android:textSize="18sp"
+            android:gravity="center_horizontal"
+            android:text="@string/notification"
             android:textColor="#397D54"
-            android:gravity="center_horizontal" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-        <!-- Clear All Button -->
+
         <TextView
             android:id="@+id/clearAllButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/make_all_read"
             android:fontFamily="@font/inter_18pt_light"
-            android:textSize="12sp"
-            android:textColor="#397D54" />
+            android:text="@string/make_all_read"
+            android:textColor="#397D54"
+            android:textSize="12sp" />
     </LinearLayout>
 
-    <!-- Tabs for Recent and Earlier -->
-    <!-- TabLayout -->
-    <!-- TabLayout for Recent and Earlier -->
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/appBar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/appBar">
 
         <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:fontFamily="@font/urbanist_italic"
             android:text="@string/recent"
-            android:layout_height="20dp"
-            android:layout_width="match_parent"
-            android:textAlignment="center"
-            android:fontFamily="@font/urbanist_italic"
-            />
+            android:textAlignment="center" />
 
         <com.google.android.material.tabs.TabItem
-            android:text="@string/earlier"
-            android:layout_height="20dp"
             android:layout_width="match_parent"
+            android:layout_height="20dp"
             android:fontFamily="@font/urbanist_italic"
-            android:textAlignment="center"/>
+            android:text="@string/earlier"
+            android:textAlignment="center" />
     </com.google.android.material.tabs.TabLayout>
 
-    <!-- ViewPager2 for swiping between tabs -->
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/tabLayout"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tabLayout" />
 
-    <!-- RecyclerView for notification list -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notificationRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/tabLayout"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Title -->
+
     <TextView
         android:id="@+id/tvWriteReviewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/write_a_review"
+        android:layout_gravity="center"
         android:fontFamily="@font/urbanist_bold"
-        android:textSize="18sp"
-        android:textStyle="bold"
         android:gravity="center"
+        android:text="@string/write_a_review"
         android:textColor="#397D54"
-        android:layout_gravity="center"/>
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-    <!-- Rating Bar (Optional, to allow users to rate) -->
+
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
@@ -26,21 +26,21 @@
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:numStars="5"
+        android:progressTint="#397D54"
         android:rating="0"
-        android:stepSize="1"
-        android:progressTint="#397D54"/>
+        android:stepSize="1" />
 
-    <!-- Review Text Input -->
+
     <EditText
         android:id="@+id/etReviewInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:autofillHints=""
-        android:hint="@string/write_your_review"
         android:fontFamily="@font/urbanist_regular"
-        android:inputType="textMultiLine"
-        android:minLines="3"
         android:gravity="top"
-        android:layout_marginTop="16dp"/>
+        android:hint="@string/write_your_review"
+        android:inputType="textMultiLine"
+        android:minLines="3" />
 
 </LinearLayout>

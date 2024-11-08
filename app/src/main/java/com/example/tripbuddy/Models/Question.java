@@ -1,9 +1,9 @@
 package com.example.tripbuddy.Models;
 
 public class Question {
-    private String question;
-    private String answer;
-    private boolean isExpanded; // To track whether the answer is expanded
+    private final String question;
+    private final String answer;
+    private boolean isExpanded; 
 
     public Question(String question, String answer) {
         this.question = question;

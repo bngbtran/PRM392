@@ -13,8 +13,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class UserRepository {
-    private UserDAO userDao;
     public ExecutorService executorService;
+    private final UserDAO userDao;
 
     public UserRepository(Application application) {
         AppDatabase db = AppDatabase.getDatabase(application);
@@ -25,7 +25,8 @@ public class UserRepository {
     public LiveData<User> getUser(String username, String password) {
         return userDao.getUser(username, password);
     }
-    public void insert(User user){
+
+    public void insert(User user) {
         executorService.execute(() -> userDao.insert(user));
     }
 

@@ -12,7 +12,7 @@ import com.example.tripbuddy.Repository.ReviewRepository;
 
 import java.util.List;
 
-public class ReviewViewModel extends AndroidViewModel{
+public class ReviewViewModel extends AndroidViewModel {
     private final ReviewRepository reviewRepository;
     private MutableLiveData<Double> averageRating = new MutableLiveData<>();
     private MutableLiveData<Integer> numberOfRatings = new MutableLiveData<>();

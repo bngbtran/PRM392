@@ -8,15 +8,6 @@
     android:paddingTop="24dp"
     tools:context=".LoginActivity">
 
-    <!-- Title Sign In Now -->
-
-    <!-- Subtitle Please Sign In -->
-
-    <!-- Email Input -->
-
-    <!-- Password Input -->
-
-    <!-- Forgot Password -->
 
     <TextView
         android:id="@+id/signInTitle"
@@ -53,12 +44,12 @@
         android:autofillHints="password"
         android:background="@drawable/edittext_gray_background"
         android:drawablePadding="16dp"
+        android:fontFamily="@font/urbanist_regular"
         android:hint="Email@example.com"
         android:inputType="textEmailAddress"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:textColorHint="#616161"
-        android:fontFamily="@font/urbanist_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,9 +64,9 @@
         android:layout_marginTop="12dp"
         android:autofillHints="password"
         android:background="@drawable/edittext_gray_background"
+        android:fontFamily="@font/urbanist_regular"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:fontFamily="@font/urbanist_regular"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:textColorHint="#616161"
@@ -85,9 +76,6 @@
         app:layout_constraintTop_toBottomOf="@id/emailEditText"
         app:layout_constraintWidth_percent="0.85" />
 
-    <!-- Sign In Button -->
-
-    <!-- Sign Up Prompt -->
 
     <TextView
         android:id="@+id/forgotPasswordText"
@@ -95,9 +83,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="28dp"
+        android:fontFamily="@font/urbanist_regular"
         android:text="@string/forget_password"
         android:textColor="#2E7D32"
-        android:fontFamily="@font/urbanist_regular"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/passwordEditText" />
@@ -108,11 +96,11 @@
         android:layout_height="50dp"
         android:layout_marginTop="84dp"
         android:backgroundTint="#397D54"
+        android:fontFamily="@font/urbanist_regular"
         android:text="@string/sign_in"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
-        android:fontFamily="@font/urbanist_regular"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/forgotPasswordText"
         app:layout_constraintWidth_percent="0.85"
@@ -122,65 +110,65 @@
         android:id="@+id/signUpPrompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/urbanist_regular"
         android:text="@string/don_t_have_an_account_sign_up"
         android:textColor="@android:color/black"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/signInButton"
-        app:layout_constraintStart_toStartOf="parent"
-        android:fontFamily="@font/urbanist_regular"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signInButton" />
 
-    <!-- Social Media Section -->
+
     <TextView
         android:id="@+id/socialConnectText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/or_connect"
         android:fontFamily="@font/urbanist_regular"
+        android:text="@string/or_connect"
         android:textColor="#546E7A"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signUpPrompt" />
 
-    <!-- Social Media Icons -->
+
     <LinearLayout
         android:id="@+id/socialIcons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/socialConnectText"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/socialConnectText">
 
-        <!-- Facebook Icon -->
+
         <ImageView
             android:id="@+id/facebookIcon"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_facebook"
-            android:contentDescription="@string/facebook" />
+            android:contentDescription="@string/facebook"
+            android:src="@drawable/ic_facebook" />
 
-        <!-- Instagram Icon -->
+
         <ImageView
             android:id="@+id/instagramIcon"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_instagram"
             android:layout_marginStart="16dp"
-            android:contentDescription="@string/instagram" />
+            android:contentDescription="@string/instagram"
+            android:src="@drawable/ic_instagram" />
 
-        <!-- Twitter Icon -->
+
         <ImageView
             android:id="@+id/twitterIcon"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_twitter"
             android:layout_marginStart="16dp"
-            android:contentDescription="@string/twitter" />
+            android:contentDescription="@string/twitter"
+            android:src="@drawable/ic_twitter" />
 
     </LinearLayout>
 

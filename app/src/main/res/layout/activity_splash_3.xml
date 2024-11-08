@@ -3,13 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".SplashActivity3">
 
-    <!-- Background Image -->
-
-    <!-- Content CardView -->
 
     <ImageView
         android:id="@+id/backgroundImage"
@@ -33,22 +30,19 @@
         android:layout_margin="16dp"
         android:background="@android:color/transparent"
         android:padding="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:cardCornerRadius="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/backgroundImage">
 
-        <!-- Text Content Inside Card -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
             android:orientation="vertical">
 
-            <!-- Main Title -->
-
-            <!-- Subtitle -->
 
             <TextView
                 android:id="@+id/mainTitle"
@@ -74,7 +68,7 @@
                 android:textColor="#757575"
                 android:textSize="14sp" />
 
-            <!-- Page Indicator (Just for design purposes) -->
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -82,7 +76,7 @@
                 android:layout_marginBottom="16dp"
                 android:orientation="horizontal">
 
-                <!-- Example: Three page indicators -->
+
                 <View
                     android:layout_width="8dp"
                     android:layout_height="8dp"
@@ -102,15 +96,15 @@
                     android:background="@drawable/circle_indicator_active" />
             </LinearLayout>
 
-            <!-- Get Started Button -->
+
             <Button
                 android:id="@+id/getStartedButton"
                 android:layout_width="266dp"
                 android:layout_height="wrap_content"
-                android:text="@string/get_started"
                 android:layout_gravity="center"
-                android:fontFamily="@font/urbanist_regular"
                 android:backgroundTint="#397D54"
+                android:fontFamily="@font/urbanist_regular"
+                android:text="@string/get_started"
                 android:textColor="@android:color/white"
                 tools:ignore="VisualLintButtonSize" />
 

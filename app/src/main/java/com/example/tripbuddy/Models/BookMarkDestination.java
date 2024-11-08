@@ -2,7 +2,7 @@ package com.example.tripbuddy.Models;
 
 import androidx.room.Entity;
 
-@Entity(tableName = "BookMarkDestination" , primaryKeys = {"userId", "destinationId"})
+@Entity(tableName = "BookMarkDestination", primaryKeys = {"userId", "destinationId"})
 public class BookMarkDestination {
     private int destinationId;
     private int userId;

@@ -18,10 +18,10 @@ import com.example.tripbuddy.R;
 import java.util.List;
 
 public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ScheduleViewHolder> {
-    private List<Schedule> scheduledItems; // Change this to a list of Schedule
-    private List<Destination> destinations; // This will hold fetched destinations
-    // Listener interface for check-in clicks
-    private OnCheckInClickListener checkInClickListener;
+    private List<Schedule> scheduledItems; 
+    private final List<Destination> destinations; 
+    
+    private final OnCheckInClickListener checkInClickListener;
 
     public ScheduleAdapter(List<Schedule> scheduledItems, List<Destination> destinations, OnCheckInClickListener listener) {
         this.scheduledItems = scheduledItems;
@@ -40,7 +40,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Schedu
     @Override
     public void onBindViewHolder(@NonNull ScheduleViewHolder holder, int position) {
         Schedule schedule = scheduledItems.get(position);
-        // Find the destination by ID
+        
         Destination destination = findDestinationById(schedule.getDestinationId());
 
         if (destination != null) {
@@ -48,26 +48,26 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Schedu
             holder.checkInDateTextView.setText(String.format(" %s", schedule.getDate()));
             holder.checkInTimeTextView.setText(String.format(" %s", schedule.getTime()));
 
-            // Set an OnClickListener for the check-in button
+            
             holder.checkInButton.setOnClickListener(v -> {
-                // Handle check-in logic here
+                
                 Toast.makeText(v.getContext(), "Checked in at " + destination.getName(), Toast.LENGTH_SHORT).show();
             });
         }
 
         holder.checkInButton.setOnClickListener(v -> {
             if (checkInClickListener != null) {
-                checkInClickListener.onCheckInClick(schedule); // Notify listener when button is clicked
+                checkInClickListener.onCheckInClick(schedule); 
             }
         });
     }
 
-    // Method to update schedules
+    
     @SuppressLint("NotifyDataSetChanged")
     public void updateSchedules(List<Schedule> newSchedules) {
-        // Update the schedule list with new data
+        
         this.scheduledItems = newSchedules;
-        // Notify the adapter that the data has changed
+        
         notifyDataSetChanged();
     }
 
@@ -82,7 +82,11 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Schedu
                 return destination;
             }
         }
-        return null; // Return null if not found
+        return null; 
+    }
+
+    public interface OnCheckInClickListener {
+        void onCheckInClick(Schedule schedule);
     }
 
     public static class ScheduleViewHolder extends RecyclerView.ViewHolder {
@@ -100,7 +104,4 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Schedu
         }
     }
 
-    public interface OnCheckInClickListener {
-        void onCheckInClick(Schedule schedule);
-    };
 }

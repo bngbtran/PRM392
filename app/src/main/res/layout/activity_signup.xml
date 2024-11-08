@@ -6,27 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".SignUpActivity">
 
-    <!-- Back button icon -->
+
     <ImageView
         android:id="@+id/backButton"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
-        android:src="@drawable/ic_back_arrow"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/back"
+        android:src="@drawable/ic_back_arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Title -->
-
-    <!-- Subtext -->
-
-    <!-- Name Input -->
-
-    <!-- Email Input -->
-
-    <!-- Password Input -->
 
     <TextView
         android:id="@+id/signUpTitle"
@@ -98,7 +89,7 @@
         app:layout_constraintWidth_percent="0.85"
         tools:ignore="VisualLintTextFieldSize" />
 
-    <!-- Password helper text -->
+
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="0dp"
@@ -119,9 +110,7 @@
         app:layout_constraintWidth_percent="0.85"
         tools:ignore="VisualLintTextFieldSize" />
 
-    <!-- Sign Up Button -->
 
-    <!-- Sign In link -->
     <TextView
         android:id="@+id/passwordHelperText"
         android:layout_width="wrap_content"
@@ -143,8 +132,8 @@
         android:layout_height="50dp"
         android:layout_marginTop="36dp"
         android:backgroundTint="#397D54"
-        android:text="@string/sign_up"
         android:fontFamily="@font/urbanist_regular"
+        android:text="@string/sign_up"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
@@ -157,17 +146,17 @@
         android:id="@+id/alreadyHaveAccountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/already_have_an_account_sign_in"
-        android:textSize="14sp"
-        android:textColor="#397D54"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/urbanist_regular"
-        app:layout_constraintTop_toBottomOf="@+id/signUpButton"
-        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
+        android:text="@string/already_have_an_account_sign_in"
+        android:textColor="#397D54"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpButton" />
 
-    <!-- Social Media Connect -->
+
     <TextView
         android:id="@+id/orConnectText"
         android:layout_width="wrap_content"
@@ -182,14 +171,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/alreadyHaveAccountText" />
 
-    <!-- Social media icons -->
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/orConnectText"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/orConnectText">
 
         <ImageView
             android:id="@+id/facebookIcon"

@@ -1,6 +1,7 @@
 package com.example.tripbuddy.Repository;
 
 import android.app.Application;
+
 import androidx.lifecycle.LiveData;
 
 
@@ -13,9 +14,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class DestinationRepostiory {
-    private DestinationDAO destinationDAO;
-    private LiveData<List<Destination>> allDestination;
     public ExecutorService executorService;
+    private final DestinationDAO destinationDAO;
+    private final LiveData<List<Destination>> allDestination;
 
     public DestinationRepostiory(Application application) {
         AppDatabase db = AppDatabase.getDatabase(application);
