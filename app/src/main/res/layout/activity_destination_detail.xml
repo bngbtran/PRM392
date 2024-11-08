@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".DestinationDetailActivity">
+
+    <!-- FrameLayout for overlaying header and image -->
+    <FrameLayout
+        android:id="@+id/imageHeaderFrame"
+        android:layout_width="0dp"
+        android:layout_height="450dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Main Image (Destination Picture) -->
+
+        <!-- App Bar Overlay (Header) -->
+
+        <ImageView
+            android:id="@+id/headerImage"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginTop="-10dp"
+            android:contentDescription="@string/destination_picture"
+            android:scaleType="centerCrop"
+            android:src="@drawable/example_detail"
+            tools:ignore="VisualLintBounds" />
+
+        <LinearLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:background="@android:color/transparent">
+
+            <!-- Back Button -->
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_back_arrow"
+                android:contentDescription="@string/back"
+                android:scaleType="centerCrop"
+                tools:ignore="ImageContrastCheck" />
+
+            <!-- Header Text -->
+            <TextView
+                android:id="@+id/textHeader"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/detail"
+                android:fontFamily="@font/urbanist_bold"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Bookmark Icon -->
+            <ImageView
+                android:id="@+id/bookmarkIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_bookmark"
+                android:contentDescription="@string/bookmarked" />
+        </LinearLayout>
+
+        <!-- Rating and Price Layout (Overlay) -->
+    </FrameLayout>
+
+    <!-- Destination Title below the image -->
+
+    <!-- Destination Location -->
+
+    <TextView
+        android:id="@+id/destinationTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/example_location"
+        android:fontFamily="@font/urbanist_bold"
+        android:textColor="#397D54"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageHeaderFrame" />
+
+    <!-- Review Button -->
+
+    <LinearLayout
+        android:id="@+id/ratingPriceLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        android:layout_marginTop="48dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/destinationTitle"
+        tools:layout_editor_absoluteX="16dp">
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="4dp"
+            android:text="@string/example_location"
+            android:fontFamily="@font/urbanist_lightitalic"
+            android:textColor="#757575"
+            android:textSize="16sp"
+            app:drawableStartCompat="@drawable/ic_location"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="442dp" />
+        <!-- Rating -->
+
+        <!-- Price -->
+        <TextView
+            android:id="@+id/ratingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:drawablePadding="4dp"
+            android:textSize="16sp"
+            android:text="@string/example_vote"
+            android:textColor="#827717"
+            android:fontFamily="@font/urbanist_lightitalic"
+            app:drawableStartCompat="@drawable/star"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="442dp" />
+
+        <TextView
+            android:id="@+id/priceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/example_price"
+            android:fontFamily="@font/urbanist_lightitalic"
+            android:textSize="16sp"
+            android:textColor="#397D54"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="138dp"
+            tools:layout_editor_absoluteY="442dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/aboutTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/about_destination"
+        android:textColor="@color/black"
+        android:fontFamily="@font/urbanist_light"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ratingPriceLayout" />
+
+    <TextView
+        android:id="@+id/aboutDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@android:color/darker_gray"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:fontFamily="@font/urbanist_light"
+        app:layout_constraintTop_toBottomOf="@id/aboutTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/addToScheduleButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#397D54"
+        android:text="@string/add_to_schedule"
+        android:textColor="@color/white"
+        android:fontFamily="@font/urbanist_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/aboutDescription"
+        tools:ignore="VisualLintButtonSize" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

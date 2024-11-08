@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".CalendarActivity">
+
+    <!-- Date Header -->
+    <LinearLayout
+        android:id="@+id/appBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Back Button -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ic_back_arrow"
+            android:contentDescription="@string/back"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_back_arrow"
+            tools:ignore="ImageContrastCheck" />
+
+        <!-- Text Header -->
+        <TextView
+            android:id="@+id/textHeader"
+            android:layout_width="182dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/schedule"
+            android:fontFamily="@font/urbanist_bold"
+            android:text="@string/schedule"
+            android:textAlignment="center"
+            android:textColor="#397D54"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Cancel Text -->
+        <TextView
+            android:id="@+id/textCancel"
+            android:layout_width="2dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/cancel"
+            android:fontFamily="@font/urbanist_light"
+            android:text="@string/cancel"
+            android:textAlignment="center"
+            android:textColor="#397D54"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- Selected Date Layout -->
+    <LinearLayout
+        android:id="@+id/selectedDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar">
+
+        <!-- Selected Date TextView -->
+
+        <!-- Next Date Button -->
+
+        <TextView
+            android:id="@+id/selectedDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/example_date"
+            android:fontFamily="@font/urbanist_bold"
+            android:textAlignment="viewStart"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/backDateButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="12dp"
+            android:contentDescription="@string/back"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_back_arrow"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/nextDateButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:padding="2dp"
+            android:contentDescription="@string/next"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_next_button"
+            tools:ignore="ImageContrastCheck" />
+    </LinearLayout>
+
+    <!-- RecyclerView for Horizontal Scrolling Calendar -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCalendar"
+        android:layout_width="404dp"
+        android:layout_height="133dp"
+        android:layout_marginTop="16dp"
+        android:scrollbars="horizontal"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/selectedDate" />
+
+
+    <!-- RecyclerView for Destinations -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewDestinations"
+        android:layout_width="414dp"
+        android:layout_height="309dp"
+        android:layout_marginTop="16dp"
+        android:scrollbars="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewCalendar" />
+    <!-- Back Date Button -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

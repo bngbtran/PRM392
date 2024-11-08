@@ -1,0 +1,46 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Destination Image -->
+        <ImageView
+            android:id="@+id/destinationImage"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:contentDescription="@string/best_destination"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sample_destination" />
+
+        <!-- Destination Details -->
+        <TextView
+            android:id="@+id/destinationName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/niladri_reservoir"
+            android:padding="8dp"
+            android:textColor="#397D54"
+            android:textSize="20sp"
+            android:fontFamily="@font/urbanist_bold"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/destinationLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tekerghat_sunamganj"
+            android:padding="8dp"
+            android:textColor="@android:color/darker_gray"
+            android:fontFamily="@font/urbanist_lightitalic"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

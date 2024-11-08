@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- item_question.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Question Row -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp">
+
+        <!-- Question Text -->
+        <TextView
+            android:id="@+id/questionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sample_question"
+            android:textSize="16sp"
+            android:textColor="#397D54"
+            tools:ignore="RelativeOverlap" />
+
+        <!-- Expand/Collapse Arrow -->
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="39dp"
+            android:layout_height="18dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/down_arrow"
+            android:maxWidth="40dp"
+            android:maxHeight="40dp"
+            android:src="@drawable/ic_arrow_down" /> <!-- replace with an arrow down icon -->
+    </RelativeLayout>
+
+    <!-- Answer Text (Hidden initially) -->
+    <TextView
+        android:id="@+id/answerText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sample_answer"
+        android:visibility="gone"
+        android:textSize="14sp"
+        android:textColor="#757575" />
+
+</LinearLayout>

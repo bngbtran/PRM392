@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <!-- User Avatar -->
+    <ImageView
+        android:id="@+id/ivUserAvatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/user"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/user_avatar" />
+
+    <!-- Review content -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <!-- Username -->
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_avatar"
+            android:textStyle="bold"
+            android:textColor="#397D54"
+            android:fontFamily="@font/urbanist_bold"
+            android:textSize="16sp"/>
+
+        <!-- Review text -->
+        <TextView
+            android:id="@+id/tvReviewText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/urbanist_italic"
+            android:text="@string/example_review"
+            android:textSize="14sp" />
+
+        <!-- Rating value -->
+        <TextView
+            android:id="@+id/tvRatingValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/example_rate"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="#FFA500" />
+    </LinearLayout>
+
+    <!-- Timestamp -->
+    <TextView
+        android:id="@+id/tvReviewTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/urbanist_italic"
+        android:text="@string/example_time"
+        android:textSize="12sp"
+        android:textColor="#397D54"/>
+</LinearLayout>
